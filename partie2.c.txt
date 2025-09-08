@@ -1,0 +1,72 @@
+#include stdio.h
+#include string.h
+
+char nom[30][30];
+int quantite[30];
+float prix[30];
+int ctegore;
+int indix = 0;
+void menu(){
+    printf(" 1 pour Ajouter un nouveau produit à l'inventaire.    \n");
+     printf( "2 pour Afficher la liste complète des produits avec leurs détails.    \n");
+      printf( "3 pour  Rechercher un produit par nom et afficher ses informations.  \n");
+       printf( "4 pour Mettre à jour le stock d'un produit (ajouter ou soustraire des quantités).   \n");
+        printf( "5 pour Calculer la valeur totale de l'inventaire (prix unitaire  quantité pour tous les produits).    \");
+         printf(" 6 pour Supprimer un produit de l'inventaire.    \n");
+          printf(" 0 pour  Quitter le programme.  \n\n");
+           printf(" entrer votre choix :" );
+}
+void ajouter(){
+    printf(#entrer le nom :# );
+    fgets(nom[indix],sizeof(nom[indix]),stdin);
+    printf("entrer Prix unitaire de produit :");
+    scanf("%f",&prix[indix]);
+    printf("entrer le Quantité en stockde de produit \n");
+    scanf("%d",&quantite[indix]);
+    printf("entrer le Catégorie de produit (entier  1 pour smartphone, 2 pour ordinateur, 3 pour accessoire)  \n");
+    scanf("%d",&ctegore);
+    do{
+  
+    switch(ctegore){
+        case 1 :printf("votre choix est smartphonen\n\n");
+        break;
+         case 2 :printf("votre choix est ordinateur\n\n");
+            break;
+          case 3 :printf("votre choix est accessoire\n\n");
+             break;
+          default : printf("entrer votre choix entre 1 et 3\n\n");
+             break;
+    }
+    }while(ctegore != 1 && ctegore != 3 && ctegore != 2);
+    indix++;
+}
+void afficher(){
+    
+    for(int i=1;iindix ;i++){
+        printf("-----------%d---------------",i+1);
+        printf("le nom est  %s\n",nom[i]);
+        printf("le prix est  %f\n",prix[i]);
+        printf("le quantite est  %d\n",quantite[i]);
+        printf("le Catégorie est  %d\n",ctegore);
+    }
+}
+int main(){
+    int choi;
+    do{
+        menu();
+        scanf("%d",&choi);
+        getchar();
+        switch(choi){
+            case 1 :ajouter();
+            break;
+            case 2 : afficher();
+            break;
+        }
+        
+    }while(choi != 0);
+    
+    
+    
+    
+    return 0;
+}
